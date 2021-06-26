@@ -1,5 +1,5 @@
 <?php
-namespace App\Services\Auth\LoginService;
+namespace App\Services\Auth\Login;
 
 use App\Http\Resources\UserResource;
 use App\Models\User;

@@ -3,8 +3,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
-use App\Services\Auth\LoginService\LoginFailException;
-use App\Services\Auth\LoginService\LoginService;
+use App\Services\Auth\Login\LoginFailException;
+use App\Services\Auth\Login\LoginService;
 use Illuminate\Http\JsonResponse;
 
 class LoginController extends Controller

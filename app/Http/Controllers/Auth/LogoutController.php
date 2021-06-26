@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Models\User;
 use App\Services\Auth\Exceptions\LoginFailException;
-use App\Services\Auth\LoginService\LoginService;
+use App\Services\Auth\Login\LoginService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

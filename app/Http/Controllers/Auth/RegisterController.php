@@ -3,8 +3,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\RegisterRequest;
-use App\Services\Auth\RegisterService\RegisterFailException;
-use App\Services\Auth\RegisterService\RegisterService;
+use App\Services\Auth\Register\RegisterFailException;
+use App\Services\Auth\Register\RegisterService;
 
 class RegisterController extends Controller
 {

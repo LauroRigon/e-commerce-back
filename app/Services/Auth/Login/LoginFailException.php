@@ -1,5 +1,5 @@
 <?php
-namespace App\Services\Auth\LoginService;
+namespace App\Services\Auth\Login;
 
 use Illuminate\Http\Response;
 

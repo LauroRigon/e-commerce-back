@@ -1,5 +1,5 @@
 <?php
-namespace App\Services\Auth\RegisterService;
+namespace App\Services\Auth\Register;
 
 use Illuminate\Http\Response;
 
