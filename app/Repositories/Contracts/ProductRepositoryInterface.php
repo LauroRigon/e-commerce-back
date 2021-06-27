@@ -2,9 +2,9 @@
 
 namespace App\Repositories\Contracts;
 
-use Illuminate\Contracts\Pagination\Paginator;
+use App\Repositories\Traits\RepositoryFilterableTrait;
 
-interface ProductRepositoryInterface extends BaseRepositoryInterface
+interface ProductRepositoryInterface extends BaseRepositoryInterface, RepositoryFilterableInterface
 {
-    public function getActives(): Paginator;
+    public function actives(): self;
 }

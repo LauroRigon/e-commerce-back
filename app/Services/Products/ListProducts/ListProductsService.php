@@ -13,8 +13,17 @@ class ListProductsService
         $this->repository = $repository;
     }
 
-    public function actives(): Paginator
+    public function actives($paginate = 10): Paginator
     {
-        return $this->repository->getActives(2);
+        return $this->repository
+            ->actives()
+            ->paginate($paginate);
+    }
+
+    public function setQueries(?array $queries)
+    {
+        if (!$queries) return;
+
+        $this->repository->setQueries($queries);
     }
 }

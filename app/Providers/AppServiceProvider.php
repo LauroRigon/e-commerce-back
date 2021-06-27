@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Sanctum::usePersonalAccessTokenModel(PersonalAccessToken::class);
 
-        JsonResource::withoutWrapping();
+//        JsonResource::withoutWrapping();
 
         $this->bindInterfaces();
     }
