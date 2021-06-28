@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ProductResource;
-use App\Services\Products\ListProducts\ListProductsService;
+use App\Services\Product\ListProducts\ListProductsService;
 
 class CreateProductController extends Controller
 {

@@ -1,5 +1,5 @@
 <?php
-namespace App\Services\Products\ListProducts;
+namespace App\Services\Product\ListProducts;
 
 use App\Repositories\Contracts\ProductRepositoryInterface;
 use Illuminate\Contracts\Pagination\Paginator;
