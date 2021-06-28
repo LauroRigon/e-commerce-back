@@ -3,7 +3,6 @@
 namespace App\Repositories\Support;
 
 use App\Repositories\Contracts\BaseRepositoryInterface;
-use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
@@ -28,7 +27,7 @@ abstract class BaseRepository implements BaseRepositoryInterface
 
     public function paginate(int $perPage = 15, ?array $columns = ['*']): Paginator
     {
-        return $this->query->simplePaginate($perPage, $columns);
+        return $this->query->paginate($perPage, $columns);
     }
 
     public function findById(int $id, array $columns = ['*']): Model

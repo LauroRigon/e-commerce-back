@@ -11,7 +11,7 @@ trait RepositoryFilterableTrait
     public function applyFilters()
     {
         $filtersToApply = array_intersect_key($this->getFilters(), $this->queries);
-//        dd($filtersToApply);
+
         foreach ($filtersToApply as $query => $filter) {
             $filter->apply($this->query, $this->queries[$query]);
         }
