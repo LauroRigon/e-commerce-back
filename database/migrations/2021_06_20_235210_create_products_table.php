@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name');
             $table->longText('description');
-            $table->unsignedFloat('price')->default(0);
+            $table->unsignedFloat('price');
             $table->unsignedFloat('discount')->default(0);
             $table->integer('stock')->default(0);
             $table->tinyInteger('availability')->default(Product::AVAILABILITY_OUT_STOCK);

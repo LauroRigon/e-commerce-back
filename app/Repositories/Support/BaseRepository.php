@@ -32,7 +32,7 @@ abstract class BaseRepository implements BaseRepositoryInterface
 
     public function findById(int $id, array $columns = ['*']): Model
     {
-        return $this->query->find($id, $columns);
+        return $this->query->findOrFail($id, $columns);
     }
 
     public function findByColumn(string $column, $value, array $columns = ['*']): Model
@@ -42,12 +42,16 @@ abstract class BaseRepository implements BaseRepositoryInterface
 
     public function create(array $data): Model
     {
-        return $this->query->create($data);
+        return $this->model->create($data);
     }
 
-    public function update(array $data, int $id, $attribute = 'id'): int
+    public function update(int $id, array $data): Model
     {
-        return $this->query->where($attribute, '=', $id)->update($data);
+        $model = $this->findById($id);
+        if (!$model->update($data)) {
+//            throw new Exception?
+        }
+        return $model;
     }
 
     public function updateByColumn(array $data, string $column, $value, $operator): int

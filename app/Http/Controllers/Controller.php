@@ -16,7 +16,7 @@ class Controller extends BaseController
     protected function respondWithErrorException(\Exception $e): JsonResponse
     {
         return response()->json([
-            'error' => $e->getMessage(),
+            'message' => $e->getMessage(),
         ],  $e->getCode());
     }
 

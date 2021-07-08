@@ -19,7 +19,7 @@ interface BaseRepositoryInterface
 
     public function create(array $data): Model;
 
-    public function update(array $data, int $id): int;
+    public function update(int $id, array $data): Model;
 
     public function updateByColumn(array $data, string $column, $value, $operator): int;
 

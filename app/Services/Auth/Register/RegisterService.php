@@ -22,7 +22,7 @@ class RegisterService
 
         return [
             'user' => new UserResource($user),
-            'token' => $user->createToken('auth'),
+            'token' => $user->createToken('auth')->plainTextToken,
         ];
     }
 }
