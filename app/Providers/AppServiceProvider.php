@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use App\Models\PersonalAccessToken;
+use App\Repositories\AccountRepository;
+use App\Repositories\Contracts\AccountRepositoryInterface;
 use App\Repositories\Contracts\ProductRepositoryInterface;
 use App\Repositories\ProductRepository;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -38,5 +40,6 @@ class AppServiceProvider extends ServiceProvider
     private function bindInterfaces()
     {
         $this->app->bind(ProductRepositoryInterface::class, ProductRepository::class);
+        $this->app->bind(AccountRepositoryInterface::class, AccountRepository::class);
     }
 }

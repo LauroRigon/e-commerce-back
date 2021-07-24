@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Account\UpdateAccountController;
+use App\Http\Controllers\Auth\GetUserAuthenticatedController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -28,6 +30,9 @@ Route::get('products/{id}', FindProductController::class);
 
 Route::group(['middleware' => ['auth:sanctum']], function() {
     Route::post('logout', LogoutController::class);
+
+    Route::get('me', GetUserAuthenticatedController::class);
+    Route::put('account/{id}', UpdateAccountController::class);
 
 //    Route::get('/user', function (Request $request) {
 //        return \App\Http\Resources\UserResource::collection(\App\Models\User::all());
