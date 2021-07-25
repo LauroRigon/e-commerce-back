@@ -11,10 +11,16 @@ abstract class DataTransferObject
     {
         $class = new ReflectionClass(static::class);
 
-        foreach ($class->getProperties(ReflectionProperty::IS_PUBLIC) as $publicProperty) {
-            $propertyName = $publicProperty->getName();
+        foreach ($class->getProperties(ReflectionProperty::IS_PUBLIC) as $property) {
+            $propertyName = $property->getName();
+            if (!isset($data[$propertyName])) {
+                continue;
+            }
 
-            if (isset($data[$propertyName])) {
+            $setMethodName = "set$propertyName";
+            if ($class->hasMethod($setMethodName)) {
+                $this->{$setMethodName}($data[$propertyName]);
+            } else {
                 $this->{$propertyName} = $data[$propertyName];
             }
         }
@@ -26,7 +32,15 @@ abstract class DataTransferObject
 
         $values = [];
         foreach ($class->getProperties(ReflectionProperty::IS_PUBLIC) as $property) {
-            $propertyValue = $this->{$property->getName()};
+            $propertyName = $property->getName();
+
+            $getMethodName = "get$propertyName";
+            if ($class->hasMethod($getMethodName)) {
+                $values[$propertyName] = $this->{$getMethodName}();
+                continue;
+            }
+
+            $propertyValue = $this->{$propertyName};
             if ($propertyValue) {
                 $values[$property->getName()] = $propertyValue;
             }

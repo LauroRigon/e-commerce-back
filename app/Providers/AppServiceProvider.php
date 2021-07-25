@@ -4,7 +4,9 @@ namespace App\Providers;
 
 use App\Models\PersonalAccessToken;
 use App\Repositories\AccountRepository;
+use App\Repositories\AddressRepository;
 use App\Repositories\Contracts\AccountRepositoryInterface;
+use App\Repositories\Contracts\AddressRepositoryInterface;
 use App\Repositories\Contracts\ProductRepositoryInterface;
 use App\Repositories\ProductRepository;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -41,5 +43,6 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(ProductRepositoryInterface::class, ProductRepository::class);
         $this->app->bind(AccountRepositoryInterface::class, AccountRepository::class);
+        $this->app->bind(AddressRepositoryInterface::class, AddressRepository::class);
     }
 }

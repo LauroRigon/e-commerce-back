@@ -1,6 +1,10 @@
 <?php
 
 use App\Http\Controllers\Account\UpdateAccountController;
+use App\Http\Controllers\Address\CreateAddressController;
+use App\Http\Controllers\Address\FindAddressController;
+use App\Http\Controllers\Address\ListAdressesController;
+use App\Http\Controllers\Address\UpdateAddressController;
 use App\Http\Controllers\Auth\GetUserAuthenticatedController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
@@ -37,6 +41,12 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
 //    Route::get('/user', function (Request $request) {
 //        return \App\Http\Resources\UserResource::collection(\App\Models\User::all());
 //    });
+
+    Route::post('address', CreateAddressController::class);
+    Route::put('address/{id}', UpdateAddressController::class);
+    Route::get('address/{id}', FindAddressController::class);
+    Route::get('address', ListAdressesController::class);
+
     Route::post('products', CreateProductController::class);
     Route::patch('products/{id}', UpdateProductController::class);
 });

@@ -27,4 +27,14 @@ class AccountDTO extends DataTransferObject
             'phone',
         ));
     }
+
+    public function setCpf($cpf)
+    {
+        $this->cpf = preg_replace('/[^a-z0-9]/i', '', $cpf);
+    }
+
+    public function setPhone($phone)
+    {
+        $this->phone = preg_replace('/[^a-z0-9]/i', '', $phone);
+    }
 }
