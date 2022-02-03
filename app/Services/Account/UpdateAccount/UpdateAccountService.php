@@ -25,6 +25,8 @@ class UpdateAccountService
         Validator::make($accountDTO->toArray(), $this->getValidationRules())->validate();
 
         $this->repository->update($id, $accountDTO->toArray());
+
+        return $this->repository->findById($id);
     }
 
     private function getValidationRules(): array

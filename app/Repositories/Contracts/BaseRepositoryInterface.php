@@ -13,7 +13,7 @@ interface BaseRepositoryInterface
 
     public function paginate(int $perPage, array $columns): Paginator;
 
-    public function findById(int $id, array $columns): ?Model;
+    public function findById(int $id, array $columns = ['*']): ?Model;
 
     public function findByColumn(string $column, $value, array $columns): ?Model;
 

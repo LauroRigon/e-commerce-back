@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Account\UpdateAccountController;
 use App\Http\Controllers\Address\CreateAddressController;
+use App\Http\Controllers\Address\DeleteAddressController;
 use App\Http\Controllers\Address\FindAddressController;
 use App\Http\Controllers\Address\ListAdressesController;
 use App\Http\Controllers\Address\UpdateAddressController;
@@ -46,8 +47,20 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
     Route::put('address/{id}', UpdateAddressController::class);
     Route::get('address/{id}', FindAddressController::class);
     Route::get('address', ListAdressesController::class);
+    Route::delete('address/{id}', DeleteAddressController::class);
 
     Route::post('products', CreateProductController::class);
     Route::patch('products/{id}', UpdateProductController::class);
+
+    Route::group(['prefix' => 'admin'], function() {
+        Route::get('product', \App\Http\Controllers\Product\ListProductsController::class);
+        Route::group(['prefix' => 'user'], function() {
+            Route::get('/', \App\Http\Controllers\Account\User\IndexController::class);
+
+            Route::get('{user}/roles', \App\Http\Controllers\Account\User\Role\IndexController::class);
+
+        });
+
+    });
 });
 
